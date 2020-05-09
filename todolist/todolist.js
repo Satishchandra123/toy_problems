@@ -48,3 +48,27 @@ function addtask() {
     display()
 }
 
+function markdone() {
+    console.log("inside markdone")
+    tasknum = document.querySelector("#task").value
+    tasknum = parseInt(tasknum) - 1
+    if (tasknum < tasks.length) {
+        done[tasknum] = true
+    }
+    clear(true)
+    display()
+}
+
+function remtask() {
+    console.log("inside remtask")
+    tasknum = document.querySelector("#task").value
+    tasknum = parseInt(tasknum) - 1
+    if (1 <= tasknum && tasknum < tasks.length) {
+        tasks.splice(tasknum, 1)
+    }
+    clear(true)
+    corrected(tasknum)
+    if (tasks.length > 0) {
+        display()
+    }
+}
