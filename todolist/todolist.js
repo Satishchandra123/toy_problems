@@ -12,3 +12,39 @@ function display() {
         document.querySelector("#list").appendChild(task)
     }
 }
+
+function clear(tasks) {
+    const todo = document.getElementById("todo")
+    todo.innerHTML = ""
+    document.getElementById("task").value = "";
+
+    if (tasks) {
+        const heading1 = document.createElement("h2")
+        heading1.innerHTML = "Tasks to be completed:"
+        todo.appendChild(heading1)
+        document.querySelector("#list").innerHTML = ""
+    }
+}
+
+function corrected(pos) {
+    if(pos == done.length - 1) {
+        done.pop()
+        return
+    }
+    for (let i = pos; i < done.length - 1; i++) {
+        done[i] = done[i + 1]
+    }
+    done.pop()
+}
+
+function addtask() {
+    console.log("inside addtask")
+    task = document.querySelector("#task").value
+    if (task != "") {
+        tasks.push(task)
+        done.push(false)
+    }
+    clear(true)
+    display()
+}
+
